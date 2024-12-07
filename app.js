@@ -6,6 +6,10 @@ const messagesRouter = require("./routes/messagesRoutes");
 
 app.set("view engine", "ejs");
 
+// MIDDLEWARE
+app.use(express.urlencoded({ extended: true }));
+
+// ROUTES
 app.use("/", messagesRouter);
 
 const PORT = 8080;
