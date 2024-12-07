@@ -21,3 +21,15 @@ describe("Deleting Items", () => {
         expect(deletedMessage).toBe(undefined);
     });
 });
+
+describe("Adding Items", () => {
+    it("Doesn't allow null values", () => {
+        expect(messageDb.addMessage()).toBeNull();
+    });
+
+    it("Adds message", () => {
+        messageDb.addMessage('Se7en is Great!', 'uncAdih123');
+        expect(messageDb.getAllMessages().length).toBe(3);
+        expect(messageDb.getMessage(4)).toBeTruthy();
+    });
+});

@@ -19,6 +19,8 @@ let messages = [
     },
 ];
 
+let IDCounter = 3; // Much better than relying on length of messages DB as it can change overtime and can lead to id dupes.
+
 function getAllMessages() {
     return messages;
 }
@@ -31,6 +33,19 @@ function removeMessage(id) {
     messages = messages.filter(m => m.id !== id);
 }
 
-// TODO: Add Messages.
+function addMessage(message, user) {
+    if (!message || !user) return null;
 
-module.exports = { messages, getAllMessages, getMessage, removeMessage };
+    IDCounter++;
+
+    const messageObj = {
+        id: IDCounter,
+        message,
+        user,
+        date: new Date(),
+    };
+
+    messages.push(messageObj);
+}
+
+module.exports = { messages, getAllMessages, getMessage, removeMessage, addMessage };
