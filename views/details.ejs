@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head', {title: 'Homepage'}) %>
+    <body>
+        <%- include('partials/header') %>
+        <h2><%= user %>:</h2>
+        <p><%= message %></p>
+        <p>Message sent at <%= date %></p>
+        <button>DELETE</button>
+        <%- include('partials/footer') %>
+    </body>
+</html>

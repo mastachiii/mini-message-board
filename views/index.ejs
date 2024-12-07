@@ -4,11 +4,10 @@
     <body>
         <%- include('partials/header') %>
         <h3>MESSAGES</h3>
-        <% console.log(messages) %>
         <ul>
             <% messages.forEach(message => { %>
             <li>
-                <h4><%= message.user %></h4>
+                <h4><a href="messages/<%= message.id %>"><%= message.user %> </a></h4>
                 <p><%= message.message %></p>
             </li>
             <% }) %>
