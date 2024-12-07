@@ -13,11 +13,11 @@ describe("Reading Items ", () => {
 });
 
 describe("Deleting Items", () => {
-    // it.todo("Removes a specific message", () => {
-    //     messageDb.removeMessage(2);
+    it("Removes a specific message", () => {
+        messageDb.removeMessage(2);
 
-    //     const deletedMessage = database.find(a => a.id === 2);
+        const deletedMessage = messageDb.getMessage(2);
 
-    //     expect(deletedMessage).toBe(undefined);
-    // });
+        expect(deletedMessage).toBe(undefined);
+    });
 });
