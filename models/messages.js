@@ -1,4 +1,4 @@
-const messages = [
+let messages = [
     {
         id: 1,
         user: "BPitt95",
@@ -23,10 +23,14 @@ function getAllMessages() {
     return messages;
 }
 
-// TODO: Fetch Specific Messages.
+function getMessage(id) {
+    return messages.find(m => m.id === id);
+}
 
-// TODO: Remove Messages.
+function removeMessage(id) {
+    messages = messages.filter(m => m.id !== id);
+}
 
 // TODO: Add Messages.
 
-module.exports = { messages, getAllMessages };
+module.exports = { messages, getAllMessages, getMessage, removeMessage };
