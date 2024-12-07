@@ -21,19 +21,19 @@ let messages = [
 
 let IDCounter = 3; // Much better than relying on length of messages DB as it can change overtime and can lead to id dupes.
 
-async function getAllMessages() {
+function getAllMessages() {
     return messages.sort((a, b) => a + b); // Reverse so that it displays messages starting from the latest one.
 }
 
-async function getMessage(id) {
+function getMessage(id) {
     return messages.find(m => m.id === id);
 }
 
-async function removeMessage(id) {
+function removeMessage(id) {
     messages = messages.filter(m => m.id !== id);
 }
 
-async function addMessage(message, user) {
+function addMessage(message, user) {
     if (!message || !user) return null;
 
     IDCounter++;

@@ -6,6 +6,15 @@
         <title>Document</title>
     </head>
     <body>
-        MESSAGEs
+        <h1>MESSAGES</h1>
+        <% console.log(messages) %>
+        <ul>
+            <% messages.forEach(message => { %>
+            <li>
+                <h4><%= message.user %></h4>
+                <p><%= message.message %></p>
+            </li>
+            <% }) %>
+        </ul>
     </body>
 </html>
