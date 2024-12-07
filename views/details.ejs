@@ -6,7 +6,17 @@
         <h2><%= user %>:</h2>
         <p><%= message %></p>
         <p>Message sent at <%= date %></p>
-        <button>DELETE</button>
+        <button data-id="<%= id %>">DELETE</button>
         <%- include('partials/footer') %>
     </body>
+    <script>
+        const button = document.querySelector("button");
+        const address = `/messages/${button.dataset.id}`;
+
+        button.addEventListener("click", () => {
+            fetch(address, { method: "DELETE" })
+                .then(response => response.json())
+                .then(response => (window.location.href = response.redirect));
+        });
+    </script>
 </html>

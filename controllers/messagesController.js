@@ -14,11 +14,10 @@ function messages_details(req, res) {
     const id = +req.params.id;
     const message = messagesDB.getMessage(id);
 
-    console.log(message);
-    res.render("details", { user: message.user, message: message.message, date: message.date });
+    res.render("details", { user: message.user, message: message.message, date: message.date, id: message.id });
 }
 
-function create_messages(req, res) {
+function create_message(req, res) {
     const message = req.body.message;
     const user = req.body.username;
 
@@ -26,4 +25,11 @@ function create_messages(req, res) {
     res.status(201).redirect("/");
 }
 
-module.exports = { messages_index, messages_form, create_messages, messages_details };
+function delete_message(req, res) {
+    const id = +req.params.id;
+
+    messagesDB.removeMessage(id);
+    res.json({ redirect: "/" });
+}
+
+module.exports = { messages_index, messages_form, create_message, messages_details, delete_message };
