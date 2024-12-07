@@ -18,3 +18,15 @@ const messages = [
         date: new Date(),
     },
 ];
+
+function getAllMessages() {
+    return messages;
+}
+
+// TODO: Fetch Specific Messages.
+
+// TODO: Remove Messages.
+
+// TODO: Add Messages.
+
+module.exports = { messages, getAllMessages };
