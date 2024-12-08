@@ -3,19 +3,19 @@ let messages = [
         id: 1,
         user: "BPitt95",
         message: "Whats in the box???",
-        date: new Date(),
+        date: new Date().toLocaleString(),
     },
     {
         id: 2,
         user: "throwaway1234",
         message: "Express is great!",
-        date: new Date(),
+        date: new Date().toLocaleString(),
     },
     {
         id: 3,
         user: "pyDev9483",
         message: "bacon spam bacon spam bacon spam",
-        date: new Date(),
+        date: new Date().toLocaleString(),
     },
 ];
 
@@ -42,7 +42,7 @@ function addMessage(message, user) {
         id: IDCounter,
         message,
         user,
-        date: new Date(),
+        date: new Date().toLocaleString(),
     };
 
     messages.push(messageObj);

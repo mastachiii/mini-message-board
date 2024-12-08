@@ -3,16 +3,17 @@
     <%- include('partials/head', {title: 'Homepage'}) %>
     <body>
         <%- include('partials/header') %>
-        <h3>MESSAGES</h3>
-        <ul>
+        <ul class="messages-container">
             <% messages.forEach(message => { %>
-            <li>
-                <h4><a href="messages/<%= message.id %>"><%= message.user %> </a></h4>
-                <p><%= message.message %></p>
-            </li>
+            <a href="messages/<%= message.id %>" class="message-card">
+                <li>
+                    <h4><%= message.user %></h4>
+                    <p><%= message.message %></p>
+                </li>
+            </a>
             <% }) %>
         </ul>
-        <button><a href="/messages/create">CREATE </a></button>
+        <button class="create-btn"><a href="/messages/create">NEW MESSAGE </a></button>
         <%- include('partials/footer') %>
     </body>
 </html>

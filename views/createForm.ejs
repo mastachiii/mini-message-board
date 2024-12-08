@@ -2,12 +2,12 @@
     <%- include('partials/head', {title: 'Create Message'}) %>
     <body>
         <%- include('partials/header') %>
-        <div>
+        <div class="message-form">
             <form action="/messages" method="POST">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required />
                 <label for="message">Message:</label>
-                <input type="text" id="message" name="message" required />
+                <textarea name="message" id="message" required></textarea>
                 <button>Submit</button>
             </form>
         </div>

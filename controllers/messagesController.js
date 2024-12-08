@@ -14,6 +14,8 @@ function messages_details(req, res) {
     const id = +req.params.id;
     const message = messagesDB.getMessage(id);
 
+    console.log(messagesDB.getAllMessages())
+
     res.render("details", { user: message.user, message: message.message, date: message.date, id: message.id });
 }
 

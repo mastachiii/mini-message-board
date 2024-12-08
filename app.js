@@ -6,6 +6,7 @@ const messagesRouter = require("./routes/messagesRoutes");
 app.set("view engine", "ejs");
 
 // MIDDLEWARE
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 // ROUTES
