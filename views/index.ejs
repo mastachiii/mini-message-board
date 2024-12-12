@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/head', {title: 'Homepage'}) %>
+    <%- include('partials/head', {title: 'Homepage'}) %> <% console.log(messages) %>
     <body>
         <%- include('partials/header') %>
         <ul class="messages-container">
             <% messages.forEach(message => { %>
             <a href="messages/<%= message.id %>" class="message-card">
                 <li>
-                    <h4><%= message.user %></h4>
+                    <h4><%= message.username %></h4>
                     <p><%= message.message %></p>
                 </li>
             </a>
