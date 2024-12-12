@@ -12,5 +12,5 @@ app.use(express.urlencoded({ extended: true }));
 // ROUTES
 app.use("/", messagesRouter);
 
-const PORT = 8080;
+const PORT = process.env.host || 8080;
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
