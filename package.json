@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "node ./db/populateDb.js node app.js",
+        "start": "node app.js",
         "dev": "node --watch app.js",
         "test": "jest --watchAll --verbose"
     },
