@@ -13,3 +13,16 @@ VALUES
     ('Al', 'I dont know how postgres works.'),
     ('Winona', 'TOP rules!');
 `;
+
+async function main() {
+    console.log("populating db...");
+    const client = new Client({
+        connectionString: process.env.DATABASE_URL,
+    });
+    await client.connect();
+    await client.query(SQL);
+    await client.end();
+    console.log("done");
+}
+
+main();
