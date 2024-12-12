@@ -1,7 +1,7 @@
-const messagesDB = require("../models/messages");
+const messagesDB = require("../db/query");
 
-function messages_index(req, res) {
-    const messages = messagesDB.getAllMessages();
+async function messages_index(req, res) {
+    const messages = await messagesDB.getAllMessages();
 
     res.render("index", { messages });
 }
@@ -10,27 +10,24 @@ function messages_form(req, res) {
     res.render("createForm");
 }
 
-function messages_details(req, res) {
+async function messages_details(req, res) {
     const id = +req.params.id;
-    const message = messagesDB.getMessage(id);
+    const message = await messagesDB.getMessage(id);
 
-    console.log(messagesDB.getAllMessages())
-
-    res.render("details", { user: message.user, message: message.message, date: message.date, id: message.id });
+    res.render("details", { user: message.username, message: message.message, id: message.id });
 }
 
-function create_message(req, res) {
-    const message = req.body.message;
-    const user = req.body.username;
+async function create_message(req, res) {
+    const { message, username } = req.body;
 
-    messagesDB.addMessage(message, user);
+    await messagesDB.addMessage(username, message);
     res.status(201).redirect("/");
 }
 
-function delete_message(req, res) {
+async function delete_message(req, res) {
     const id = +req.params.id;
 
-    messagesDB.removeMessage(id);
+    await messagesDB.deleteMessage(id);
     res.json({ redirect: "/" });
 }
 
